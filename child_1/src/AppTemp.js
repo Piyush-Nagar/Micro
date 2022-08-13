@@ -20,7 +20,6 @@ export class AppTemp extends React.Component {
         console.log("this is triggered")
     }
 
-
     render() {
         return (
             <div className="App">
