@@ -3,7 +3,16 @@ import './App.css';
 import { decrease, increase, reset } from "./redux/action";
 import { useDispatch } from "react-redux";
 
+import { GlobalStore } from 'redux-micro-frontend';
+import store from "./store";
+
 function App() {
+  
+  this.globalStore = GlobalStore.Get();
+
+this.globalStore.RegisterStore("Child1", store);
+
+this.globalStore.RegisterGlobalActions("Child1", ["INCREASE"]);
 
   const dispatch = useDispatch();
 
