@@ -1,10 +1,9 @@
+import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { decrease, increase, reset } from "./redux/action";
 import { useDispatch } from "react-redux";
 import { Provider } from "react-redux";
-import store from "./store";
-
 
 
 function App() {
