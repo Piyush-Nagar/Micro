@@ -4,6 +4,7 @@ const counterReducer = (state = 0, action) => {
   const { type, payload } = action;
   switch (type) {
     case INCREASE:
+      console.log("Testing")
       return state + 1;
     case DECREASE:
       return state - 1;

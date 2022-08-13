@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
@@ -7,21 +7,19 @@ import { Provider } from "react-redux";
 import store from "./store";
 
 window.renderChild = (containerId, history) => {
-  ReactDOM.render(
-    <Provider store={store}>
-      <App history={history} />
-    </Provider>,
-    document.getElementById(containerId),
-  );
+  let root = createRoot(document.getElementById(containerId));
+  root.render(<Provider store={store}>
+    <App history={history} />
+  </Provider>);
 };
 
 window.unmountHeader = containerId => {
-  ReactDOM.unmountComponentAtNode(document.getElementById(containerId));
+  containerId.unmount();
 };
 
 if (!document.getElementById('Child-container')) {
-  ReactDOM.render(<Provider store={store}>    
-       <App />
-     </Provider>
-  , document.getElementById('root'));
+  let p  = createRoot(document.getElementById('root'));
+  p.render(<Provider store={store}>    
+    <App />
+  </Provider>)
 }

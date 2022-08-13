@@ -1,10 +1,7 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import { decrease, increase, reset } from "./redux/action";
 import { useDispatch } from "react-redux";
-import { Provider } from "react-redux";
-
 
 function App() {
 
@@ -13,7 +10,10 @@ function App() {
   return (
     <div className="App">
        <div>
-        <button onClick={() => dispatch(increase())}>Increase</button>
+        <button onClick={() => {
+          console.log("dispatch")
+          dispatch({"type": "INCREASE"})
+      }}>Increase</button>
         <button onClick={() => dispatch(reset())}>Reset</button>
         <button onClick={() => dispatch(decrease())}>Decrease</button>
       </div>
